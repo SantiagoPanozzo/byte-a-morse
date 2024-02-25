@@ -2,7 +2,7 @@
 // ---------------------
 // Represent a single letter with 8 bits in the morse code format!
 // Also supports lowercase and uppercase! And spaces!
-// All of this to get a whopping like 53 possible characters per byte.
+// All of this to get a whopping 1 of like 53 possible characters per byte.
 // Is this CPU-efficient? No.
 // Is this storage-efficient? No.
 // Is there any technical advantage over ASCII? Nah.
