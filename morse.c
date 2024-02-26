@@ -12,9 +12,10 @@
 //
 // TODO:
 // - Optimize functions
-// - Make interactive (shitty CLI)
+// - DONE: Make interactive (shitty CLI)
 
 #include <stdio.h>
+#include <stdlib.h>
 
 char lookup1(char input)
 {
@@ -128,6 +129,7 @@ char decode(char input)
   return res;
 }
 
+
 int main(int argc, char *argv[])
 {
   // IsUpper  Size  Code - Result
@@ -136,14 +138,13 @@ int main(int argc, char *argv[])
   // 1        100   0111 - B
   //
   // size 0 and anything else that fails is a space ' '
-  
-  // Uppercase A
-  printf("%c\n", decode(0b10100010));
-  
-  // Lowercase A
-  printf("%c\n", decode(0b00100010));
 
-  // Uppercase B
-  printf("%c\n", decode(0b11000111));
+  if (argc == 1)
+    printf("Syntax: morsec [input]\nExample: morsec 10100010\nOutputs: A\n\nBit 7: Set if uppercase\nBit 6-4: Size of code\nBit 3-0: Morse code, set for . unset for -\n");
+  
+  for (int i = 1; i < argc; i++){
+    const long binary_n = strtol(argv[i], NULL, 2);
+    printf("%c\n", decode((char)binary_n));
+  }
   return 0;
 }
